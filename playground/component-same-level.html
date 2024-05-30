@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 같은 레벨값에서 컴포넌트 통신 방법 -->
+
+    <div id="app">
+        <app-header v-bind:propsdata="num"></app-header>
+        <app-content v-on:pass="deliverNum"></app-content>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var appHeader = {            
+            template: '<div>header</div>',
+            props: ['propsdata']
+        }
+        var appContent = {
+            template: '<div>appContent <button v-on:click="passNum">pass 버튼</button></div>',  //버튼 클릭했을때 appHeader로 가지를 못해 Root로 emit 해야함
+            methods: {
+                passNum: function() {
+                    this.$emit('pass', 10);
+                }
+            }
+        }
+
+        // 새로운 인스턴스 (Root)
+        new Vue({
+            el: '#app',
+            components: {
+                'app-header': appHeader,
+                'app-content': appContent
+            },
+            data: {
+                num: 0
+            },
+            methods: {
+                deliverNum: function(value) {
+                    // this.num = value;
+                    this.num = 10;
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>
