@@ -13,6 +13,7 @@
 </head>
 <body>
   <div id="app">
+    <!-- <p v-bind:class="{ warning: isError }">Hello</p> -->
     <p v-bind:class="errorTextColor">Hello</p>
   </div>
   
@@ -32,6 +33,7 @@
           //   return null;
           // }
           return this.isError ? 'warning' : null;
+          // 삼항연산자  isError 가 맞으면(?)  waring 아니면 null 임 -- 데이타 속성 가져올려면 무조건 this 사용
         }
       }
     });
