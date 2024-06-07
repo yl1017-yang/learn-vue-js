@@ -21,6 +21,7 @@ import AppHeader from './components/AppHeader.vue';
 // })
 
 export default {
+  // 인스턴스 옵션 속성 or 컴포넌트 옵션 속성
   data: function() {
     return {
       str: 'Header'
