@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'; //http 통신 라이브러리 post:통신 생성
 
 export default {
   data: function() {
@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     submitForm: function() {
-      // event.preventDefault();
+      // event.preventDefault(); //새로고침을 막는 이벤트 
       console.log(this.username, this.password);
       var url = 'https://jsonplaceholder.typicode.com/users';
       var data = {
